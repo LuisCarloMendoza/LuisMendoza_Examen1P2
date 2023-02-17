@@ -60,7 +60,7 @@ public class Escritorio extends PC{
 
     @Override
     public String toString() {
-        return super.toString() + "PC_Escritorio{" + "RAM=" + RAM + ", capacidadAlmacenamiento=" + capacidadAlmacenamiento + ", tipoAlmacenamiento=" + tipoAlmacenamiento + ", tarjetaGrafica=" + tarjetaGrafica + '}';
+        return super.toString() + "RAM: " + RAM + "\n"+ "Capacidad de Almacenamiento: "+ capacidadAlmacenamiento + "\n" + "Tipo de Almacenamiento: " + tipoAlmacenamiento + "\n" + "Tarjeta Gráfica: " + tarjetaGrafica + "\n";
     }
     
 }

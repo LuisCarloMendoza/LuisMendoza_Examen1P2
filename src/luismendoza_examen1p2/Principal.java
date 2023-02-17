@@ -426,6 +426,11 @@ public class Principal extends javax.swing.JFrame {
         jButtonIngresar.setFont(new java.awt.Font("Zapfino", 0, 14)); // NOI18N
         jButtonIngresar.setText("Ingresar");
         jButtonIngresar.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        jButtonIngresar.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jButtonIngresarMouseClicked(evt);
+            }
+        });
         jButtonIngresar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButtonIngresarActionPerformed(evt);
@@ -604,21 +609,67 @@ public class Principal extends javax.swing.JFrame {
 
     private void jButtonRemoveMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButtonRemoveMouseClicked
         // TODO add your handling code here:
-            
-            try {
-             n = Integer.parseInt(jTextField_Quitar.getText());
+
+        try {
+            n = Integer.parseInt(jTextField_Quitar.getText());
 
             computadoras.remove(n);
             JOptionPane.showMessageDialog(null, "Se ha eliminado con éxito");
-            
+
         } catch (Exception e) {
             JOptionPane.showMessageDialog(null, "Ha ocurrido un error");
         }
-           
 
-            
 
     }//GEN-LAST:event_jButtonRemoveMouseClicked
+
+    private void jButtonIngresarMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButtonIngresarMouseClicked
+        // TODO add your handling code here:
+        setVisible(false);
+
+        while (m != 1) {
+            System.out.println("Ingrese una de las siguientes opciones: \n"
+                    + "1. Show\n"
+                    + "2. Ping\n"
+                    + "3. Exit\n");
+            
+            int opcionUsuario = entrada.nextInt();
+            
+            switch(opcionUsuario){
+                
+                case 1:
+                    
+                    System.out.println("Elija una de las siguientes opciones");
+                    for (int i = 0; i < computadoras.size(); i++) {
+                        System.out.println(computadoras.get(i).IP);
+                    }
+                    
+                    
+                    int seleccion = entrada.nextInt();
+                    
+                    
+                    
+                    
+                    
+                    break;
+                    
+                case 2:
+                    
+                    break;
+                    
+                case 3:
+                    
+                    break;
+                    
+                default:
+                    System.out.println("Opción no valida");
+                    break;
+            }
+
+        }
+
+
+    }//GEN-LAST:event_jButtonIngresarMouseClicked
 
     /**
      * @param args the command line arguments
@@ -709,9 +760,10 @@ public class Principal extends javax.swing.JFrame {
     Scanner entrada = new Scanner(System.in);
 
     ArrayList<PC> computadoras = new ArrayList();
-    
+
     int n;
-    
+    int m;
+
     // Variables PC-Escritorio
     String IP1;
     String mascara1;

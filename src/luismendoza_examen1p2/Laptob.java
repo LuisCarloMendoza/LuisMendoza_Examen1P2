@@ -51,7 +51,7 @@ public class Laptob extends PC {
 
     @Override
     public String toString() {
-        return super.toString() + "marca: " + marca + "\n" + "Resolución de Pantalla: "+resolucionP + "\n";
+        return super.toString() + "marca: " + marca + "\n" + "Resolución de Pantalla: "+resolucionP + "\n" + "RBG: " + RGB + "\n";
     }
     
     
