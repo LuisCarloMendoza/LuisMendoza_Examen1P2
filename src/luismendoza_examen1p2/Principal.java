@@ -626,8 +626,27 @@ public class Principal extends javax.swing.JFrame {
     private void jButtonIngresarMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButtonIngresarMouseClicked
         // TODO add your handling code here:
         setVisible(false);
-
-        while (m != 1) {
+        
+        System.out.println("Elija un IP");
+        String seleccion;
+        int seleccion2 = 0;
+        
+        for (int i = 0; i < computadoras.size(); i++) {
+            if(computadoras.get(i).getIP().equals(seleccion)){
+                seleccion2 = computadoras.indexOf(i);
+            }
+        }
+        
+        if(computadoras.isEmpty()){
+            System.out.println("Aun no hay Computadoras");
+        } else{
+            
+            String seleccionIP = entrada.next();
+            seleccionIP += entrada.nextLine();
+            
+            while (m != 1) {
+            
+            
             System.out.println("Ingrese una de las siguientes opciones: \n"
                     + "1. Show\n"
                     + "2. Ping\n"
@@ -639,26 +658,24 @@ public class Principal extends javax.swing.JFrame {
                 
                 case 1:
                     
-                    System.out.println("Elija una de las siguientes opciones");
-                    for (int i = 0; i < computadoras.size(); i++) {
-                        System.out.println(computadoras.get(i).IP);
-                    }
-                    
-                    
-                    int seleccion = entrada.nextInt();
-                    
-                    
-                    
-                    
+                    System.out.println(computadoras.get(seleccion2).getIP());
+                    System.out.println(computadoras.get(seleccion2).getIP());
                     
                     break;
                     
                 case 2:
                     
+                    System.out.println("Ingrese el IP al que desea hacer PING");
+                    String seleccion3 = entrada.next();
+                    seleccion3 += entrada.nextLine();
+                    
+                    
                     break;
                     
                 case 3:
                     
+                    setVisible(true);
+                    m++;
                     break;
                     
                 default:
@@ -667,6 +684,10 @@ public class Principal extends javax.swing.JFrame {
             }
 
         }
+        }
+        
+        
+        
 
 
     }//GEN-LAST:event_jButtonIngresarMouseClicked
