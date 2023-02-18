@@ -626,53 +626,85 @@ public class Principal extends javax.swing.JFrame {
     private void jButtonIngresarMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButtonIngresarMouseClicked
         // TODO add your handling code here:
         setVisible(false);
-        
+
         System.out.println("Elija un IP");
-        String seleccion;
+        String seleccion = "";
         int seleccion2 = 0;
-        
+
         for (int i = 0; i < computadoras.size(); i++) {
-            if(computadoras.get(i).getIP().equals(seleccion)){
+
+            if (computadoras.get(i).getIP().equals(seleccion)) {
                 seleccion2 = computadoras.indexOf(i);
             }
         }
-        
-        if(computadoras.isEmpty()){
+
+        if (computadoras.isEmpty()) {
             System.out.println("Aun no hay Computadoras");
-        } else{
-            
-            String seleccionIP = entrada.next();
-            seleccionIP += entrada.nextLine();
-            
+        } else {
+
             while (m != 1) {
-            
-            
-            System.out.println("Ingrese una de las siguientes opciones: \n"
-                    + "1. Show\n"
-                    + "2. Ping\n"
-                    + "3. Exit\n");
-            
-            int opcionUsuario = entrada.nextInt();
-            
-            switch(opcionUsuario){
+
+                System.out.println("Ingrese una de las siguientes opciones: \n"
+                        + "1. Show\n"
+                        + "2. Ping\n"
+                        + "3. Exit\n");
+
+                int opcionUsuario = entrada.nextInt();
+
+                switch (opcionUsuario) {
+
+                    case 1:
+
+                        System.out.println(computadoras.get(seleccion2).getIP());
+                        System.out.println(computadoras.get(seleccion2).getIP());
+
+                        break;
+
+                    case 2:
+
+                        System.out.println("Ingrese el IP al que desea hacer PING");
+                        String seleccion3 = entrada.next();
+                        seleccion3 += entrada.nextLine();
+
+                        String mask1_string = "" + seleccion.charAt(seleccion.length() - 1);
+
+                        int mask1 = Integer.parseInt(mask1_string);
+
+                        Integer.toBinaryString(mask1);
+
+                        String mask2_string = "" + seleccion3.charAt(seleccion3.length() - 1);
+
+                        int mask2 = Integer.parseInt(mask2_string);
+
+                        int seleccion4 = 0;
+
+                        for (int i = 0; i < computadoras.size(); i++) {
+
+                            if (computadoras.get(i).getIP().equals(seleccion)) {
+                                seleccion4 = computadoras.indexOf(i);
+                            }
+
+                            if (mask1 == mask2) {
+
+                                System.out.println(computadoras.get(seleccion2).getHostName() + " #" + computadoras.get(seleccion2).getIP()
+                                + "Pinging to " + computadoras.get(seleccion4).getIP() +"\n" + "Reply from " + computadoras.get(seleccion2).getIP() + " bytes = 32 time = 37ms + TTL = 46"
+                                + "Reply from " + computadoras.get(seleccion2).getIP() + " bytes = 32 time = 37ms + TTL = 46" +
+                                        "Reply from " + computadoras.get(seleccion2).getIP() + " bytes = 32 time = 37ms + TTL = 46" +
+                                        "Reply from " + computadoras.get(seleccion2).getIP() + " bytes = 32 time = 37ms + TTL = 46 \n" +
+                                        "Ping statics for " + computadoras.get(seleccion2).getIP() + ":");
+
+                            } else if (mask1 != mask2) {
+                                
+                                
+                                
+                            }
+
+                            break;
+
+                        
                 
-                case 1:
-                    
-                    System.out.println(computadoras.get(seleccion2).getIP());
-                    System.out.println(computadoras.get(seleccion2).getIP());
-                    
-                    break;
-                    
-                case 2:
-                    
-                    System.out.println("Ingrese el IP al que desea hacer PING");
-                    String seleccion3 = entrada.next();
-                    seleccion3 += entrada.nextLine();
-                    
-                    
-                    break;
-                    
-                case 3:
+            
+        case 3:
                     
                     setVisible(true);
                     m++;
@@ -695,6 +727,8 @@ public class Principal extends javax.swing.JFrame {
     /**
      * @param args the command line arguments
      */
+    
+
     public static void main(String args[]) {
         /* Set the Nimbus look and feel */
         //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
