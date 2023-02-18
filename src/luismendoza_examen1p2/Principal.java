@@ -238,6 +238,11 @@ public class Principal extends javax.swing.JFrame {
                 jButton_Guardar2MouseClicked(evt);
             }
         });
+        jButton_Guardar2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton_Guardar2ActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout jPanel_LabtopRemoveLayout = new javax.swing.GroupLayout(jPanel_LabtopRemove);
         jPanel_LabtopRemove.setLayout(jPanel_LabtopRemoveLayout);
@@ -557,9 +562,9 @@ public class Principal extends javax.swing.JFrame {
         // TODO add your handling code here:
 
         try {
-            IP2 = jTextField_IP1.getText();
-            mascara2 = jTextField_Mascara1.getText();
-            hostName2 = jTextField_HostName1.getText();
+            IP2 = jTextField_IP2.getText();
+            mascara2 = jTextField_Mascara2.getText();
+            hostName2 = jTextField_HostName2.getText();
 
             marca = jTextField_Marca.getText();
             resolucionP = jTextField_RdP.getText();
@@ -627,123 +632,130 @@ public class Principal extends javax.swing.JFrame {
         // TODO add your handling code here:
         setVisible(false);
 
-        System.out.println("Elija un IP");
-        String seleccion = "";
-        int seleccion2 = 0;
+        try {
+            System.out.println("Elija un IP");
+            String seleccion = entrada.next();
+            seleccion += entrada.nextLine();
+            int seleccion2 = 0;
 
-        for (int i = 0; i < computadoras.size(); i++) {
+            for (int i = 0; i < computadoras.size(); i++) {
 
-            if (computadoras.get(i).getIP().equals(seleccion)) {
-                seleccion2 = computadoras.indexOf(i);
+                if (computadoras.get(i).getIP().equals(seleccion)) {
+                    seleccion2 = computadoras.indexOf(i);
+                }
             }
-        }
 
-        if (computadoras.isEmpty()) {
-            System.out.println("Aun no hay Computadoras");
-        } else {
+            if (computadoras.isEmpty()) {
+                System.out.println("Aun no hay Computadoras");
+                setVisible(true);
+            } else {
 
-            while (m != 1) {
+                while (m != 1) {
 
-                System.out.println("Ingrese una de las siguientes opciones: \n"
-                        + "1. Show\n"
-                        + "2. Ping\n"
-                        + "3. Exit\n");
+                    System.out.println("Ingrese una de las siguientes opciones: \n"
+                            + "1. Show\n"
+                            + "2. Ping\n"
+                            + "3. Exit\n");
 
-                int opcionUsuario = entrada.nextInt();
+                    int opcionUsuario = entrada.nextInt();
 
-                switch (opcionUsuario) {
+                    switch (opcionUsuario) {
 
-                    case 1:
+                        case 1:
 
-                        System.out.println(computadoras.get(seleccion2).getIP());
-                        System.out.println(computadoras.get(seleccion2).getIP());
+                            System.out.println(computadoras.get(seleccion2).getIP());
+                            System.out.println(computadoras.get(seleccion2).getIP());
 
-                        break;
+                            break;
 
-                    case 2:
+                        case 2:
 
-                        System.out.println("Ingrese el IP al que desea hacer PING");
-                        String seleccion3 = entrada.next();
-                        seleccion3 += entrada.nextLine();
+                            System.out.println("Ingrese el IP al que desea hacer PING");
+                            String seleccion3 = entrada.next();
+                            seleccion3 += entrada.nextLine();
 
-                        String mask1_string = "" + seleccion.charAt(seleccion.length() - 1);
+                            String mask1_string = "" + seleccion.charAt(seleccion.length() - 1);
 
-                        int mask1 = Integer.parseInt(mask1_string);
+                            int mask1 = Integer.parseInt(mask1_string);
 
-                        Integer.toBinaryString(mask1);
+                            Integer.toBinaryString(mask1);
 
-                        String mask2_string = "" + seleccion3.charAt(seleccion3.length() - 1);
+                            String mask2_string = "" + seleccion3.charAt(seleccion3.length() - 1);
 
-                        int mask2 = Integer.parseInt(mask2_string);
+                            int mask2 = Integer.parseInt(mask2_string);
 
-                        int seleccion4 = 0;
+                            int seleccion4 = 0;
 
-                        for (int i = 0; i < computadoras.size(); i++) {
+                            for (int i = 0; i < computadoras.size(); i++) {
 
-                            if (computadoras.get(i).getIP().equals(seleccion)) {
-                                seleccion4 = computadoras.indexOf(i);
+                                if (computadoras.get(i).getIP().equals(seleccion)) {
+                                    seleccion4 = computadoras.indexOf(i);
+
+                                }
+
                             }
-                            
-                        }
 
                             if (mask1 == mask2) {
 
                                 System.out.println(computadoras.get(seleccion2).getHostName() + " #" + computadoras.get(seleccion2).getIP()
-                                + "Pinging to " + computadoras.get(seleccion4).getIP() +"\n" + "Reply from " + computadoras.get(seleccion2).getIP() + " bytes = 32 time = 37ms + TTL = 46"
-                                + "Reply from " + computadoras.get(seleccion2).getIP() + " bytes = 32 time = 37ms + TTL = 46" +
-                                        "Reply from " + computadoras.get(seleccion2).getIP() + " bytes = 32 time = 37ms + TTL = 46" +
-                                        "Reply from " + computadoras.get(seleccion2).getIP() + " bytes = 32 time = 37ms + TTL = 46 \n" +
-                                        "Ping statics for " + computadoras.get(seleccion2).getIP() + ":\n" + "      Packets: sent = 4, Received = 4, Lost = 0 (0% loss\n" +
-                                        computadoras.get(seleccion2).getHostName());
+                                        + "Pinging to " + computadoras.get(seleccion4).getIP() + "\n" + "Reply from " + computadoras.get(seleccion2).getIP() + " bytes = 32 time = 37ms + TTL = 46"
+                                        + "Reply from " + computadoras.get(seleccion2).getIP() + " bytes = 32 time = 37ms + TTL = 46\n"
+                                        + "Reply from " + computadoras.get(seleccion2).getIP() + " bytes = 32 time = 37ms + TTL = 46\n"
+                                        + "Reply from " + computadoras.get(seleccion2).getIP() + " bytes = 32 time = 37ms + TTL = 46 \n"
+                                        + "Ping statics for " + computadoras.get(seleccion2).getIP() + ":\n" + "      Packets: sent = 4, Received = 4, Lost = 0 (0% loss\n"
+                                        + computadoras.get(seleccion2).getHostName());
 
                             } else if (mask1 != mask2) {
-                                
+
                                 System.out.println(computadoras.get(seleccion2).getHostName() + " #" + computadoras.get(seleccion2).getIP()
-                                + "Pinging to " + computadoras.get(seleccion4).getIP() +"\n" + "Request time out\n" + "Destination host unreachable\n" +"Destination host unreachable\n" + "Destination host unreachable\n"+ "Destination host unreachable\n"+
-                                        "Ping statics for " + computadoras.get(seleccion2).getIP() + ":\n" + "      Packets: sent = 4, Received = 4, Lost = 0 (0% loss\n" +
-                                        computadoras.get(seleccion2).getHostName());
-                                
-                                
-                            } else{
-                                
+                                        + "Pinging to " + computadoras.get(seleccion4).getIP() + "\n" + "Request time out\n" + "Destination host unreachable\n" + "Destination host unreachable\n" + "Destination host unreachable\n" + "Destination host unreachable\n"
+                                        + "Ping statics for " + computadoras.get(seleccion2).getIP() + ":\n" + "      Packets: sent = 4, Received = 4, Lost = 0 (0% loss\n"
+                                        + computadoras.get(seleccion2).getHostName());
+
+                            } else {
+
                                 System.out.println(computadoras.get(seleccion2).getHostName() + " #" + computadoras.get(seleccion2).getIP()
-                                + "Pinging to " + computadoras.get(seleccion4).getIP() +"\n" + "Request time out\n" + "Request time out\n" +"Request time out\n" + "Request time out\n"+ "Request time out\n"+
-                                        "Ping statics for " + computadoras.get(seleccion2).getIP() + ":\n" + "      Packets: sent = 4, Received = 4, Lost = 0 (0% loss\n" +
-                                        computadoras.get(seleccion2).getHostName());
-                                
+                                        + "Pinging to " + computadoras.get(seleccion4).getIP() + "\n" + "Request time out\n" + "Request time out\n" + "Request time out\n" + "Request time out\n" + "Request time out\n"
+                                        + "Ping statics for " + computadoras.get(seleccion2).getIP() + ":\n" + "      Packets: sent = 4, Received = 4, Lost = 0 (0% loss\n"
+                                        + computadoras.get(seleccion2).getHostName());
+
                             }
-                            
 
                             break;
 
-                        
-                
-            
-        case 3:
-                    
-                    setVisible(true);
-                    m++;
-                    break;
-                    
-                default:
-                    System.out.println("Opción no valida");
-                    break;
+                        case 3:
+
+                            setVisible(true);
+                            m++;
+                            break;
+
+                        default:
+                            System.out.println("Opción no valida");
+                            break;
+                    }
+
+                }
             }
 
+        } catch (Exception e) {
+            System.out.println(computadoras.get(0).getHostName() + " #" + computadoras.get(0).getIP()
+                    + "Pinging to " + computadoras.get(0).getIP() + "\n" + "Request time out\n" + "Request time out\n" + "Request time out\n" + "Request time out\n" + "Request time out\n"
+                    + "Ping statics for " + computadoras.get(0).getIP() + ":\n" + "      Packets: sent = 4, Received = 4, Lost = 0 (0% loss)\n"
+                    + computadoras.get(0).getHostName());
+            setVisible(true);
+            
         }
-        }
-        
-        
-        
 
 
     }//GEN-LAST:event_jButtonIngresarMouseClicked
 
+    private void jButton_Guardar2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton_Guardar2ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jButton_Guardar2ActionPerformed
+
     /**
      * @param args the command line arguments
      */
-    
-
     public static void main(String args[]) {
         /* Set the Nimbus look and feel */
         //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
