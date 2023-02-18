@@ -683,6 +683,8 @@ public class Principal extends javax.swing.JFrame {
                             if (computadoras.get(i).getIP().equals(seleccion)) {
                                 seleccion4 = computadoras.indexOf(i);
                             }
+                            
+                        }
 
                             if (mask1 == mask2) {
 
@@ -691,13 +693,21 @@ public class Principal extends javax.swing.JFrame {
                                 + "Reply from " + computadoras.get(seleccion2).getIP() + " bytes = 32 time = 37ms + TTL = 46" +
                                         "Reply from " + computadoras.get(seleccion2).getIP() + " bytes = 32 time = 37ms + TTL = 46" +
                                         "Reply from " + computadoras.get(seleccion2).getIP() + " bytes = 32 time = 37ms + TTL = 46 \n" +
-                                        "Ping statics for " + computadoras.get(seleccion2).getIP() + ":");
+                                        "Ping statics for " + computadoras.get(seleccion2).getIP() + ":\n" + "      Packets: sent = 4, Received = 4, Lost = 0 (0% loss\n" +
+                                        computadoras.get(seleccion2).getHostName());
 
                             } else if (mask1 != mask2) {
                                 
+                                System.out.println(computadoras.get(seleccion2).getHostName() + " #" + computadoras.get(seleccion2).getIP()
+                                + "Pinging to " + computadoras.get(seleccion4).getIP() +"\n" + "Request time out\n" + "Request time out\n" +"Request time out\n" + "Request time out\n"+ "Request time out\n"+
+                                        "Ping statics for " + computadoras.get(seleccion2).getIP() + ":\n" + "      Packets: sent = 4, Received = 4, Lost = 0 (0% loss\n" +
+                                        computadoras.get(seleccion2).getHostName());
                                 
+                                
+                            } else{
                                 
                             }
+                            
 
                             break;
 
