@@ -699,12 +699,17 @@ public class Principal extends javax.swing.JFrame {
                             } else if (mask1 != mask2) {
                                 
                                 System.out.println(computadoras.get(seleccion2).getHostName() + " #" + computadoras.get(seleccion2).getIP()
-                                + "Pinging to " + computadoras.get(seleccion4).getIP() +"\n" + "Request time out\n" + "Request time out\n" +"Request time out\n" + "Request time out\n"+ "Request time out\n"+
+                                + "Pinging to " + computadoras.get(seleccion4).getIP() +"\n" + "Request time out\n" + "Destination host unreachable\n" +"Destination host unreachable\n" + "Destination host unreachable\n"+ "Destination host unreachable\n"+
                                         "Ping statics for " + computadoras.get(seleccion2).getIP() + ":\n" + "      Packets: sent = 4, Received = 4, Lost = 0 (0% loss\n" +
                                         computadoras.get(seleccion2).getHostName());
                                 
                                 
                             } else{
+                                
+                                System.out.println(computadoras.get(seleccion2).getHostName() + " #" + computadoras.get(seleccion2).getIP()
+                                + "Pinging to " + computadoras.get(seleccion4).getIP() +"\n" + "Request time out\n" + "Request time out\n" +"Request time out\n" + "Request time out\n"+ "Request time out\n"+
+                                        "Ping statics for " + computadoras.get(seleccion2).getIP() + ":\n" + "      Packets: sent = 4, Received = 4, Lost = 0 (0% loss\n" +
+                                        computadoras.get(seleccion2).getHostName());
                                 
                             }
                             
